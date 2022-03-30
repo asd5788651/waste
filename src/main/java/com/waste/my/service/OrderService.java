@@ -51,4 +51,14 @@ public class OrderService {
         }
         return ResultUtil.failed("删除失败");
     }
+
+    public Result update(OrderModel orderModel){
+       OrderDO orderDO=new OrderDO();
+       BeanUtils.copyProperties(orderModel,orderDO);
+        int update = orderMapper.updateById(orderDO);
+        if (update > 0) {
+            return ResultUtil.success();
+        }
+        return ResultUtil.failed("更新失败");
+    }
 }

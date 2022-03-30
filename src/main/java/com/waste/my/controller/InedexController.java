@@ -141,4 +141,21 @@ public class InedexController {
     public String orderAdd() {
         return "order-add";
     }
+
+    @GetMapping("order-edit")
+    public String orderEdit() {
+        return "order-edit";
+    }
+
+
+    @GetMapping("member-edit")
+    public String memberEdit() {
+        return "member-edit";
+    }
+
+
+    @GetMapping("member-add")
+    public String memberADD() {
+        return "member-add.html";
+    }
 }

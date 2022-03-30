@@ -39,7 +39,7 @@
     </div>
     <xblock>
         <!-- <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
-        <button class="layui-btn" onclick="x_admin_show('添加用户','waste-add')"><i class="layui-icon"></i>添加</button>
+        <button class="layui-btn" onclick="x_admin_show('添加废品','waste-add',600,500)"><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px"></span>
     </xblock>
     <table class="layui-table">
@@ -48,8 +48,8 @@
             <!--            <th>-->
             <!--                &lt;!&ndash; <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div> &ndash;&gt;-->
             <!--            </th>-->
-            <th>商品序号</th>
-            <th>商品名</th>
+            <th>废品序号</th>
+            <th>废品名</th>
             <th>图片</th>
             <th>类别</th>
             <th>价格</th>
@@ -120,7 +120,7 @@
     function Toid(value,type){
         $.session.set('id', value);
         $.session.set('type', type);
-        x_admin_show('编辑','w-edit')
+        x_admin_show('编辑','w-edit',600,500)
     }
 </script>
 

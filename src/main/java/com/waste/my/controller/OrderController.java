@@ -32,4 +32,9 @@ public class OrderController {
     public Result delete(@PathVariable Long id){
         return    orderService.delete(id);
     }
+
+    @PostMapping("update")
+    public Result update(@RequestBody OrderModel orderModel){
+        return    orderService.update(orderModel);
+    }
 }

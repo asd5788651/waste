@@ -17,16 +17,15 @@
          </div>
         <div class="x-body">
             <fieldset class="layui-elem-field">
-              <legend>信息统计</legend>
+              <legend>废品销售统计</legend>
               <div class="layui-field-box">
                 <table class="layui-table" lay-even>
                     <thead>
                         <tr>
-                            <th>统计</th>
-                            <th>资讯库</th>
-                            <th>图片库</th>
-                            <th>产品库</th>
-                            <th>用户</th>
+                            <th>金额统计</th>
+                            <th>客户</th>
+                            <th>回收员</th>
+                            <th>订单</th>
                             <th>管理员</th>
                         </tr>
                     </thead>
@@ -36,12 +35,10 @@
                             <td>92</td>
                             <td>9</td>
                             <td>0</td>
-                            <td>8</td>
                             <td>20</td>
                         </tr>
                         <tr>
                             <td>今日</td>
-                            <td>0</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -53,7 +50,6 @@
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
-                            <td>0</td>
                         </tr>
                         <tr>
                             <td>本周</td>
@@ -61,12 +57,10 @@
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
-                            <td>0</td>
                         </tr>
                         <tr>
                             <td>本月</td>
                             <td>2</td>
-                            <td>0</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
@@ -84,15 +78,26 @@
                     var myChart = echarts.init(document.getElementById('main'));
 
                     // 指定图表的配置项和数据
+                    var myDate = new Date;
+                    var year = myDate.getFullYear(); //获取当前年
+                    var mon = myDate.getMonth() + 1; //获取当前月
+                    var date = myDate.getDate(); //获取当前日
+                    // var h = myDate.getHours();//获取当前小时数(0-23)
+                    // var m = myDate.getMinutes();//获取当前分钟数(0-59)
+                    // var s = myDate.getSeconds();//获取当前秒
+                    var week = myDate.getDay();
+                    var weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                    console.log(year, mon, date, weeks[week])
+                    var  data=year + "年" + mon + "月" + date + "日" + weeks[week];
                     var option = {
                         title: {
-                            text: '今日在线数据'
+                            text: '今日('+data+')废品在线数据'
                         },
                         tooltip: {
                             trigger: 'axis'
                         },
                         legend: {
-                            data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+                            data: ['金属', '塑料', '纸品', '衣物', '化学物品']
                         },
                         grid: {
                             left: '3%',
@@ -115,31 +120,31 @@
                         },
                         series: [
                         {
-                            name: '邮件营销',
+                            name: '金属',
                             type: 'line',
                             stack: '总量',
                             data: [120, 132, 101, 134, 90, 230, 210]
                         },
                         {
-                            name: '联盟广告',
+                            name: '塑料',
                             type: 'line',
                             stack: '总量',
                             data: [220, 182, 191, 234, 290, 330, 310]
                         },
                         {
-                            name: '视频广告',
+                            name: '纸品',
                             type: 'line',
                             stack: '总量',
                             data: [150, 232, 201, 154, 190, 330, 410]
                         },
                         {
-                            name: '直接访问',
+                            name: '衣物',
                             type: 'line',
                             stack: '总量',
                             data: [320, 332, 301, 334, 390, 330, 320]
                         },
                         {
-                            name: '搜索引擎',
+                            name: '化学物品',
                             type: 'line',
                             stack: '总量',
                             data: [820, 932, 901, 934, 1290, 1330, 1320]
@@ -155,12 +160,16 @@
 
 
         var _hmt = _hmt || [];
+
+
         (function() {
           var hm = document.createElement("script");
           hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
+
+
         </script>
     </body>
 </html>

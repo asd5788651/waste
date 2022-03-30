@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class OrderModel {
+    private long id;
     private String user;
     private String recycleMan;
     private String phone;
