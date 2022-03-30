@@ -14,4 +14,5 @@ public class CycleManModel {
     private String phone;
     private String email;
     private String address;
+    private String userPassword;
 }

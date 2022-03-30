@@ -26,8 +26,8 @@ public class CycleManService {
     public Result create(CycleManModel cycleManModel){
         CycleManDO cycleManDO=new CycleManDO();
         BeanUtils.copyProperties(cycleManModel,cycleManDO);
-        int insert = cycleManMapper.insert(cycleManDO);
         cycleManDO.setUserCode(GenerateUserId.generate());
+        int insert = cycleManMapper.insert(cycleManDO);
         if(insert>0){
             return ResultUtil.success();
         }

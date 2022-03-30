@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.waste.my.domain.PageModel;
+import com.waste.my.mapper.CycleManMapper;
 import com.waste.my.mapper.RootDO;
 import com.waste.my.mapper.RootMapper;
 import com.waste.my.domain.UserModel;
@@ -31,6 +32,9 @@ public class UserService {
 
     @Autowired
     private RootMapper userMapper;
+
+    @Autowired
+    private CycleManMapper cycleManMapper;
 
     /**
      * @Description: 创建用户
@@ -68,7 +72,12 @@ public class UserService {
         wrapper.eq("user_password", model.getUserPassword());
         wrapper.eq("delete_flag",0);
         List<RootDO> userDOS = userMapper.selectList(wrapper);
-        if (userDOS.size() < 1) {
+        QueryWrapper wrapper1=new QueryWrapper();
+        wrapper1.eq("username",model.getUserName());
+        wrapper1.eq("password",model.getUserPassword());
+        wrapper1.eq("delete_flag",0);
+        List list = cycleManMapper.selectList(wrapper1);
+        if (userDOS.size() < 1&&list.size()<0) {
             return ResultUtil.failed("用户名或密码错误!");
         } else {
             return ResultUtil.success();
