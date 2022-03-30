@@ -47,7 +47,7 @@
                     var username = data.field.username;
                     var password = data.field.password;
                     var data = JSON.stringify({ "userName": "" + username + "", "userPassword": "" + password + "" });
-                    var data = ajax("http://8.136.8.92:28000/api/waster/user/login","post", data);
+                    var data = ajax("http://localhost:28000/api/waster/user/login","post", data);
                     if (data != undefined) {
                         $.session.set('username', username);
                         if (data.code == 0) {

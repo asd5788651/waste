@@ -116,7 +116,7 @@
         layui.use('layer', function () {
             var layer = layui.layer;
 
-            var data = ajax("http://8.136.8.92:28000/api/waster/goods-type", "get");
+            var data = ajax("http://localhost:28000/api/waster/goods-type", "get");
             console.log(data.data)
             var data = data.data;
             for (var i = 0; i < data.length; i++) {
@@ -140,7 +140,7 @@
                 var name=$("#goodname").val();
                 console.log(image)
                 var data = JSON.stringify({ "goodsType": type, "goodsMoney": money,"image":image,"goodsName":name })
-                var data = ajax("http://8.136.8.92:28000/api/waster/good/create", "post", data);
+                var data = ajax("http://localhost:28000/api/waster/good/create", "post", data);
                 //发异步，把数据提交给php
                 layer.alert("修改成功", {icon: 6},function () {
                     // // 获得frame索引

@@ -119,7 +119,7 @@
         layui.use('layer', function () {
             var layer = layui.layer;
             var id=   $.session.get("id");
-            var data = ajax("http://8.136.8.92:28000/api/waster/good/query-one/"+id+"", "get");
+            var data = ajax("http://localhost:28000/api/waster/good/query-one/"+id+"", "get");
               var goodsMoney=data.data.goodsMoney;
               var goodsName=data.data.goodsName;
               var image=data.data.image;
@@ -129,7 +129,7 @@
             $("#money").val(goodsMoney)
              $("#demo1").attr("src", image);
             $("#goodname").val(goodsName);
-             var data = ajax("http://8.136.8.92:28000/api/waster/goods-type", "get");
+             var data = ajax("http://localhost:28000/api/waster/goods-type", "get");
             console.log(data.data)
              var data = data.data;
              for (var i = 0; i < data.length; i++) {
@@ -150,7 +150,7 @@
                 var image = $("#demo1")[0].src;
                 var name=$("#goodname").val();
                 var data = JSON.stringify({"id":id, "goodsType": type, "goodsMoney": money,"image":image,"goodsName":name })
-             var  data=ajax("http://8.136.8.92:28000/api/waster/good/update","post",data);
+             var  data=ajax("http://localhost:28000/api/waster/good/update","post",data);
                 console.log(data)
                 //发异步，把数据提交给php
                 layer.alert("修改成功", {icon: 6},function () {

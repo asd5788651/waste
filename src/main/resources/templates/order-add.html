@@ -146,7 +146,7 @@
             var contrller=data.field.contrller;
             var money=data.field.money;
             var data = JSON.stringify({ "user": username, "phone": phone,"address":address,"recycleMan":cycleman,"payMode": contrller,"money":money})
-           var data= ajax("http://8.136.8.92:28000/api/waster/order/create","post",data);
+           var data= ajax("http://localhost:28000/api/waster/order/create","post",data);
             //发异步，把数据提交给php
             layer.alert("增加成功", {icon: 6},function () {
                 // 获得frame索引

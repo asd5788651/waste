@@ -23,12 +23,7 @@
 
 <body>
     <div class="x-nav">
-        <span class="layui-breadcrumb">
-            <a href="">首页</a>
-            <a href="">演示</a>
-            <a>
-                <cite>导航元素</cite></a>
-        </span>
+
         <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
             <i class="layui-icon" style="line-height:30px">ဂ</i></a>
     </div>
@@ -68,7 +63,7 @@
         layui.use('laydate', function () {
             var laydate = layui.laydate;
             var data = JSON.stringify({ "start": 0, "pageSize": 10 })
-            var data = ajax("http://8.136.8.92:28000/api/waster/user/root-list", "post", data);
+            var data = ajax("http://localhost:28000/api/waster/user/root-list", "post", data);
             list(data)
 
 
@@ -89,11 +84,11 @@
             layer.confirm('确认要删除吗？', function (index) {
                 //发异步删除数据
                 //   $(obj).parents("tr").remove();
-                var data = ajax("http://8.136.8.92:28000/api/waster/user/root-delete/" + id + "", "get");
+                var data = ajax("http://localhost:28000/api/waster/user/root-delete/" + id + "", "get");
                 if (data.code == 0) {
                     layer.msg('已删除!', { icon: 1, time: 1000 });
                     var data = JSON.stringify({ "start": 0, "pageSize": 10 })
-                    var data = ajax("http://8.136.8.92:28000/api/waster/user/root-list", "post", data);
+                    var data = ajax("http://localhost:28000/api/waster/user/root-list", "post", data);
                     list(data);
                 } else {
                     layer.msg('删除失败!', { icon: 1, time: 1000 });

@@ -125,7 +125,7 @@
            var id=$.session.get("id");
             var status=$("#select  option:selected").text();
             var data = JSON.stringify({ "id": id, "status": status })
-            var data = ajax("http://8.136.8.92:28000/api/waster/order/update", "post", data);
+            var data = ajax("http://localhost:28000/api/waster/order/update", "post", data);
             //发异步，把数据提交给php
             layer.alert("修改成功", {icon: 6},function () {
                 // // 获得frame索引

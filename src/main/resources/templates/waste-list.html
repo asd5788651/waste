@@ -24,12 +24,7 @@
 
 <body>
 <div class="x-nav">
-        <span class="layui-breadcrumb">
-            <a href="">首页</a>
-            <a href="">演示</a>
-            <a>
-                <cite>导航元素</cite></a>
-        </span>
+
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
        href="javascript:location.replace(location.href);" title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
@@ -74,7 +69,7 @@
 
         function goodsList() {
 
-        var data = ajax("http://8.136.8.92:28000/api/waster/good/query-list", "get");
+        var data = ajax("http://localhost:28000/api/waster/good/query-list", "get");
         var data = data.data;
         $("#tbody").html("");
         for (var i = 0; i < data.length; i++) {
@@ -105,7 +100,7 @@
     function member_del(obj, id) {
         console.log(id);
         layer.confirm('确认要删除吗？', function (index) {
-            var data = ajax("http://8.136.8.92:28000/api/waster/good/delete/" + id + "", "get");
+            var data = ajax("http://localhost:28000/api/waster/good/delete/" + id + "", "get");
             if (data.code == 0) {
                 layer.msg('已删除!', { icon: 1, time: 1000 });
                 goodsList();
